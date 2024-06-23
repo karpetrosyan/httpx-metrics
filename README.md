@@ -2,8 +2,8 @@
 
 httpx-metrics is a utility library that offers classes for integrating metrics into your httpx client (currently, it supports only Prometheus metrics).
 
-[![PyPI - Version](https://img.shields.io/pypi/v/httpx-observer.svg)](https://pypi.org/project/httpx-observer)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/httpx-observer.svg)](https://pypi.org/project/httpx-observer)
+[![PyPI - Version](https://img.shields.io/pypi/v/httpx-metrics.svg)](https://pypi.org/project/httpx-metrics)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/httpx-metrics.svg)](https://pypi.org/project/httpx-metrics)
 
 -----
 

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      HTTPX_METRICS_PYPI: ${{ secrets.HTTPX_METRICS_MYPY }}
+      HTTPX_METRICS_PYPI: ${{ secrets.HTTPX_METRICS_PYPI }}
 
     steps:
       - uses: "actions/checkout@v4"
