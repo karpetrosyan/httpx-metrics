@@ -11,7 +11,7 @@ class PrometheusTransport(httpx.BaseTransport):
     def __init__(
         self,
         next_transport: httpx.BaseTransport,
-        metrics: t.Optional[list[BaseMetricTransport]] = None,
+        metrics: t.Optional[t.List[BaseMetricTransport]] = None,
         exporter_port: int = 8000,
     ):
         self._next_transport = next_transport
@@ -30,7 +30,7 @@ class AsyncPrometheusTransport(httpx.AsyncBaseTransport):
     def __init__(
         self,
         next_transport: httpx.AsyncBaseTransport,
-        metrics: t.Optional[list[AsyncBaseMetricTransport]] = None,
+        metrics: t.Optional[t.List[AsyncBaseMetricTransport]] = None,
         exporter_port: int = 8000,
     ):
         self._next_transport = next_transport
