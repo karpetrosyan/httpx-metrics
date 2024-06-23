@@ -12,7 +12,7 @@ class PrometheusTransport(httpx.BaseTransport):
         self,
         next_transport: httpx.BaseTransport,
         metrics: t.Optional[t.List[BaseMetricTransport]] = None,
-        exporter_port: int = 8000,
+        exporter_port: t.Optional[int] = 8000,
     ):
         self._next_transport = next_transport
 
@@ -20,7 +20,8 @@ class PrometheusTransport(httpx.BaseTransport):
             metric._next_transport = self._next_transport
             self._next_transport = metric
 
-        start_http_server(exporter_port)
+        if exporter_port is not None:
+            start_http_server(exporter_port)
 
     def handle_request(self, request: httpx.Request) -> httpx.Response:
         return self._next_transport.handle_request(request)
@@ -31,7 +32,7 @@ class AsyncPrometheusTransport(httpx.AsyncBaseTransport):
         self,
         next_transport: httpx.AsyncBaseTransport,
         metrics: t.Optional[t.List[AsyncBaseMetricTransport]] = None,
-        exporter_port: int = 8000,
+        exporter_port: t.Optional[int] = 8000,
     ):
         self._next_transport = next_transport
 
@@ -39,7 +40,8 @@ class AsyncPrometheusTransport(httpx.AsyncBaseTransport):
             metric._next_transport = self._next_transport
             self._next_transport = metric
 
-        start_http_server(exporter_port)
+        if exporter_port is not None:
+            start_http_server(exporter_port)
 
     async def handle_async_request(self, request: httpx.Request) -> httpx.Response:
         return await self._next_transport.handle_async_request(request)
